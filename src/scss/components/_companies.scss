@@ -1,0 +1,71 @@
+@use '../utils/placeholders';
+@use '../utils/variables' as var;
+@use '../utils/functions' as fn;
+@use '../utils/mixins' as mx;
+
+.companies-list {
+  @include mx.mq('md') {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 21px;
+  }
+
+  @include mx.mq('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.company {
+  border-radius: 24px;
+  padding: 24px;
+  height: 196px;
+
+  background-color: fn.get-color('dark-tertiary');
+
+  @include mx.mq('md', 'max') {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.wrapper {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.company-name {
+  @extend %accent-text;
+
+  color: fn.get-color('light');
+}
+
+.company-icon {
+  fill: fn.get-color('light');
+
+  &.icon-fill {
+    stroke: fn.get-color('light');
+    fill: fn.get-color('transparent');
+  }
+}
+
+.company-location {
+  @extend %main-text;
+
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  .geotag {
+    fill: fn.get-color('success');
+  }
+}
+
+.company-btn {
+  color: fn.get-color('accent-primary');
+  border: 1px solid;
+  font-size: 14px;
+}

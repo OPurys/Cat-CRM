@@ -33,4 +33,12 @@
       'co-workers tasks'
       'co-workers reports';
   }
+
+  &-companies {
+    padding: 16px;
+
+    @include mx.mq('md') {
+      padding: 36px;
+    }
+  }
 }

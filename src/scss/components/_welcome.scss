@@ -15,6 +15,15 @@
   justify-content: space-between;
   align-items: flex-end;
   row-gap: 16px;
+
+  &-companies {
+    align-items: flex-start;
+    margin-bottom: 40px;
+
+    @include mx.mq('md') {
+      margin-bottom: 36px;
+    }
+  }
 }
 
 .page-title {
